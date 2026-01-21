@@ -1,70 +1,90 @@
-/* ===== RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family:'Poppins',sans-serif; background:#fafafa; color:#333;}
+
+/* Navbar */
+.navbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#ff9800;
+  padding:15px 20px;
+}
+.logo {color:white; font-size:1.4rem; font-weight:600;}
+.nav-links {list-style:none; display:flex; gap:20px;}
+.nav-links a {color:white; text-decoration:none; font-weight:500;}
+.menu-toggle {
+  display:none;
+  font-size:1.8rem;
+  background:none;
+  border:none;
+  color:white;
+  cursor:pointer;
 }
 
-/* ===== BODY BACKGROUND (RANG YO‘Q) ===== */
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Hero */
+.hero {
+  text-align:center;
+  padding:50px 20px;
+  background:linear-gradient(135deg,#ff9800,#ff5722);
+  color:white;
+}
+.hero h1 {font-size:2.2rem;}
+.hero p {margin-top:10px; font-size:1.1rem;}
 
-  background-color: #1F3757;
+/* Grid */
+.grid-container {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+  padding:20px;
+}
+.card {
+  background:white;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  padding:15px;
+  text-align:center;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+.card video {
+  width:100%;          /* responsiv */
+  height:auto;         /* 16:9 format saqlanadi */
+  max-width:320px;     /* maksimal kenglik */
+  border-radius:10px;
+  display:block;
+  margin:0 auto;
+}
+.card h3 {margin-top:10px; font-size:1rem;}
+
+/* Footer */
+footer {
+  background:#333;
+  color:white;
+  text-align:center;
+  padding:15px;
+  margin-top:30px;
 }
 
-/* ===== GAME ZONE ===== */
-#gameZone {
-  display: flex;
-  gap: 40px;
+/* Responsive */
+@media (max-width:768px){
+  .nav-links {
+    display:none;
+    flex-direction:column;
+    background:#ff9800;
+    position:absolute;
+    top:60px; left:0; right:0;
+    padding:15px;
+  }
+  .nav-links.show {display:flex;}
+  .menu-toggle {display:block;}
+  .hero h1 {font-size:1.8rem;}
+  .hero p {font-size:1rem;}
 }
-
-/* ===== HAND IMAGES ===== */
-.js-hand {
-  width: 140px;
-  cursor: pointer;
-  transition: transform 0.25s ease, filter 0.25s ease   ;
+@media (max-width:480px){
+  .hero h1 {font-size:1.5rem;}
+  .card h3 {font-size:0.9rem;}
 }
-
-.js-hand:hover {
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 15px rgba(255,255,255,0.6));
-}
-
-/* ===== RESULT ZONE ===== */
-#resultZone {
-  display: none;
-  gap: 40px;
-  align-items: center;
-}
-
-/* ===== USER & ROBOT ===== */
-#user,
-#robot {
-  width: 150px;
-}
-
-/* ===== REFRESH BUTTON ===== */
-#refreshGameButton {
-  padding: 14px 26px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-
-  background: #ffffff;
-  color: #333;
-
-  transition: 0.25s ease;
-}
-
-#refreshGameButton:hover {
-  background: #ff4757;
-  color: #fff;
-  transform: scale(1.05);
-}
-
-
